@@ -16,8 +16,14 @@ pipeline {
                 )
             }
         }
+        stage('Unit Tests') {
+                    steps {
+                        // Fixed: Added 'test' goal and used 'bat' for Windows
+                        bat 'mvn -Dtest=SeleniumTest test'
+                    }
+                }
 
-        stage('Parallel Tests') {
+        /*stage('Parallel Tests') {
             parallel {
                 stage('Unit Tests') {
                     steps {
@@ -27,7 +33,7 @@ pipeline {
                 }
             }
         }
-    }
+    }*/
 
     post {
         always {
