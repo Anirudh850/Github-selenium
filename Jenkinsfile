@@ -8,10 +8,14 @@ pipeline {
 
     stages {
         stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Anirudh850/Github-selenium.git'
-            }
-        }
+             steps {
+
+            credentialsId: 'your-credential-id', 
+            url: 'https://github.com/Anirudh850/Github-selenium.git'
+   
+    }
+}
+            
 
         stage('Build') {
             steps {
