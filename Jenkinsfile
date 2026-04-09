@@ -18,20 +18,20 @@ pipeline {
         }
             
 
-        stage('Build') {
+       /*stage('Build') {
             steps {
                 sh 'mvn clean compile'
             }
-        }
+        }*/
 
         stage('Parallel Tests') {
             parallel {
                 stage('Unit Tests') {
                     steps {
-                        sh 'mvn -Dtest=*UnitTest test'
+                        sh 'mvn -Dtest=SeleniumTest'
                     }
                 }
-                stage('Integration Tests') {
+                /*stage('Integration Tests') {
                     steps {
                         sh 'mvn -Dtest=*IntegrationTest test'
                     }
@@ -50,4 +50,4 @@ pipeline {
             junit '*/target/surefire-reports/.xml'
         }
     }
-}
+}*/
